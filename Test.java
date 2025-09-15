@@ -176,22 +176,18 @@ public class Test {
         while (true) {
             System.out.print("Введите число от 0 до 9: ");
             int guess;
-
             try {
                 guess = in.nextInt();
             } catch (java.util.InputMismatchException e) {
                 System.out.println("Ошибка! Нужно ввести целое число от 0 до 9.");
-                in.nextLine(); // чистим мусор
+                in.nextLine();
                 continue;
             }
-
             if (guess < 0 || guess > 9) {
                 System.out.println("Ошибка! Диапазон 0..9.");
                 continue;
             }
-
             attempts++;
-
             if (guess == secret) {
                 System.out.println("Вы угадали!");
                 System.out.println("Вы отгадали число за " + attempts + " попытки");
@@ -208,7 +204,7 @@ public class Test {
         if (arr == null || arr.length == 0) {
             return -1;
         }
-        for (int i = arr.length - 1; i >= 0; i--) { // идём с конца
+        for (int i = arr.length - 1; i >= 0; i--) {
             if (arr[i] == x) {
                 return i;
             }
@@ -219,19 +215,18 @@ public class Test {
     // 4.4 — вставить x в позицию pos, вернуть новый массив
     public int[] add(int[] arr, int x, int pos) {
         if (arr == null) {
-            return new int[]{x}; // если массив пустой, возвращаем массив только с x
+            return new int[]{x};
         }
         if (pos < 0 || pos > arr.length) {
-            return arr; // позиция некорректна → вернём исходный массив
+            return arr;
         }
-
         int[] res = new int[arr.length + 1];
         for (int i = 0; i < pos; i++) {
-            res[i] = arr[i]; // копируем элементы до pos
+            res[i] = arr[i];
         }
-        res[pos] = x; // вставляем новое число
+        res[pos] = x;
         for (int i = pos; i < arr.length; i++) {
-            res[i + 1] = arr[i]; // копируем остаток со сдвигом
+            res[i + 1] = arr[i];
         }
         return res;
     }
@@ -239,7 +234,7 @@ public class Test {
     // 4.6 — развернуть массив на месте (in-place)
     public void reverse(int[] arr) {
         if (arr == null || arr.length == 0) {
-            return; // ничего не делаем
+            return;
         }
         int left = 0;
         int right = arr.length - 1;
@@ -263,7 +258,6 @@ public class Test {
         if (arr2 == null) {
             return arr1.clone();
         }
-
         int[] res = new int[arr1.length + arr2.length];
         for (int i = 0; i < arr1.length; i++) {
             res[i] = arr1[i];
