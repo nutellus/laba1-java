@@ -60,7 +60,7 @@ public class Main {
                         System.out.print("Введите число: ");
                         int num2 = in.nextInt();
                         boolean result2 = laba1method.isPositive(num2);
-                        System.out.println("Положительное: " + result2);
+                        System.out.println("Положительное ли число: " + result2);
                         break;
 
                     case 3: // 1.6
@@ -78,7 +78,7 @@ public class Main {
                         System.out.print("Введите число b: ");
                         int b = in.nextInt();
                         boolean result4 = laba1method.isDivisor(a, b);
-                        System.out.println("Есть делимость: " + result4);
+                        System.out.println("Есть ли делимость: " + result4);
                         break;
 
                     case 5: // 1.10
@@ -198,7 +198,7 @@ public class Main {
                         for (int i = 0; i < n; i++) {
                             arr[i] = in.nextInt();
                         }
-                        in.nextLine(); // очищаем буфер
+                        in.nextLine();
                         System.out.print("Введите число x: ");
                         int val = in.nextInt();
                         int idx = laba1method.findLast(arr, val);
