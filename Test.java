@@ -1,18 +1,13 @@
 public class Test {
 
     // 1.2 — сумма двух последних цифр числа
-    public int sumLastNums (int x) {
-        int q = 2;
-        int res = 0;
-        int y = 0;
-        while (q != 0) {
-            q = q - 1;
-            y = x % 10;
-            x = x / 10;
-            res = res + y;
-        }
-        return res;
+    public int sumLastNums(int x) {
+        int absX = Math.abs(x);
+        int last = absX % 10;
+        int preLast = (absX / 10) % 10;
+        return last + preLast;
     }
+
 
     // 1.4 — положительное ли число
     public boolean isPositive (int x) {
@@ -24,9 +19,9 @@ public class Test {
         return x >= 'A' && x <= 'Z';
     }
 
-    // 1.8 — делится ли одно число на другое (есть ли делимость)
+    // 1.8 — делится ли одно число на другое
     public boolean isDivisor (int a, int b) {
-        return (b != 0 && a % b == 0) || (a != 0 && b % a == 0);
+        return b != 0 && a % b == 0;
     }
 
     // 1.10 — сумма последних цифр двух чисел
@@ -64,15 +59,27 @@ public class Test {
     }
 
     // 2.6 — проверка, дают ли два числа сумму третьего
-    public boolean sum3 (int x, int y, int z) {
-        return x + y == z || x + z == y || y + z == x;
+    public boolean sum3(int x, int y, int z) {
+        if (x + y == z) {
+            return true;
+        }
+        if (x + z == y) {
+            return true;
+        }
+        if (y + z == x) {
+            return true;
+        }
+        return false;
     }
+
 
     // 2.8 — вернуть строку возраста с правильным словом (год/года/лет)
     public String age(int x) {
-        int n = Math.abs(x);
-        int last = n % 10;
-        int last2 = n % 100;
+        if (x < 0) {
+            return "возраст не может быть отрицательным!";
+        }
+        int last = x % 10;
+        int last2 = x % 100;
         if (last2 >= 11 && last2 <= 14) {
             return x + " лет";
         } else if (last == 1) {
@@ -84,8 +91,9 @@ public class Test {
         }
     }
 
+
     // 2.10 — вывести дни недели от введённого до воскресенья
-    public void printDays (String x) {
+    public void printDays(String x) {
         switch (x) {
             case "понедельник":
                 System.out.println("понедельник");
@@ -109,7 +117,7 @@ public class Test {
 
 
     // 3.2 — вернуть строку чисел от x до 0
-    public String reverseListNums (int x) {
+    public String reverseListNums(int x) {
         if (x < 0) {
             return ("Число x должно быть больше нуля!");
         }
@@ -124,7 +132,7 @@ public class Test {
     }
 
     // 3.4 — x в степени y (y >= 0)
-    public int pow (int x, int y) {
+    public int pow(int x, int y) {
         if (y < 0) {
             System.out.println("Ошибка: степень должна быть неотрицательной");
             return 0;
@@ -137,7 +145,7 @@ public class Test {
     }
 
     // 3.6 — все ли цифры числа одинаковые
-    public boolean equalNum (int x) {
+    public boolean equalNum(int x) {
         x = Math.abs(x);
         int lastd = x % 10;
         while (x > 0) {
